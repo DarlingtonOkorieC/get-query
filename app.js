@@ -6,7 +6,7 @@ app.get('/api', (req, res) => {
   const { slack_name, track } = req.query;
   const current_day = new Date().toLocaleDateString('en-US', { weekday: 'long' });
   const utc_time = new Date().toISOString();
-  const github_file_url = 'https://github.com/username/repo/blob/main/file_name.ext';
+  const github_file_url = 'https://github.com/DarlingtonOkorieC/get-query/blob/main/app.js';
   const github_repo_url = 'https://github.com/DarlingtonOkorieC/get-query.git';
 
   // Validate UTC time within +/-2 hours
