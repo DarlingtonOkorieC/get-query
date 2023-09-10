@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000
 app.get('/api', (req, res) => {
   const { slack_name, track } = req.query;
   const current_day = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  const utc_time = new Date().toISOString();
+  const utc_time = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'); // Format UTC time
   const github_file_url = 'https://github.com/DarlingtonOkorieC/get-query/blob/main/app.js';
   const github_repo_url = 'https://github.com/DarlingtonOkorieC/get-query.git';
 
@@ -31,7 +31,10 @@ app.get('/api', (req, res) => {
   };
 
   res.json(response);
-});
+})
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
